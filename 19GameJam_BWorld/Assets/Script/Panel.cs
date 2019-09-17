@@ -19,10 +19,10 @@ public class Panel : MonoBehaviour
             switch (click)//クリックされた回数が
             {
                 case (1):
-                    this.gameObject.GetComponent<Image>().sprite = white;//白に変更
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = white;//白に変更
                     break;
                 case (2):
-                    this.gameObject.GetComponent<Image>().sprite = black;//黒に変更
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = black;//黒に変更
                     click = 0;
                     break;
             }
