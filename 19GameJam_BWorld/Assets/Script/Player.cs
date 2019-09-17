@@ -4,65 +4,37 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed;
-    public float jumpPower;
-    Rigidbody2D Rigi;
-    Animation anim;
-
-
-    // Use this for initialization
+    public Rigidbody2D rb2d; // Rigidbody2Dの入れ物
+  public bool isGrounded;
     void Start()
     {
-        Rigi = GetComponent<Rigidbody2D>();
-        //anim = this.gameObject.GetComponent<Animation>();
-
-
-
+        // オブジェクトのRigidbody2Dを取得
+        rb2d = GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-
-
-        float inputHor = Input.GetAxis("Horizontal");
-
-        if (inputHor != 0)
-        {
-            lockmanRun(inputHor);
-            //anim.Play();
-        }
-
+        // 左右のキー入力を取得
+        float moveparam = Input.GetAxis("Horizontal");
+        // 左右方向移動のためオブジェクトに力を加える
+        rb2d.AddForce(Vector2.right * moveparam * 10f);
+        // スペースキー入力でオブジェクトをジャンプさせる
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            lockmanjump();
+            if (isGrounded == true)
+            {
+                rb2d.AddForce(new Vector2(0, 9.8f), ForceMode2D.Impulse);
+                isGrounded = false;
+            }
         }
-
     }
-
-    void lockmanjump()
+    // 空中での連続ジャンプを抑制するため地面との接触を感知するフラグの操作
+    // 地面とするオブジェクトにタグ（ground）をInspector上から追加しておく
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        Rigi.AddForce(new Vector2(0, 100 * Time.deltaTime * jumpPower));
+        if (collision.gameObject.tag == "ground")
+        {
+            isGrounded = true;
+        }
     }
 
-
-    void lockmanRun(float InputX)
-    {
-
-        if (InputX > 0)//キャラの臥像を進行方向に反転
-        {
-            this.transform.localScale = new Vector3(1, 1, 1);
-        }
-        else
-        {
-            this.transform.localScale = new Vector3(-1, 1, 1);
-        }
-
-
-        InputX = (int)Mathf.Clamp(InputX * 5000, -1, 1);
-        this.transform.localScale = new Vector3(InputX, 1, 1);
-        this.transform.Translate(InputX * Time.deltaTime * speed, 0, 0);
-
-
-    }
 }
