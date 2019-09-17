@@ -19,12 +19,12 @@ public class Black : MonoBehaviour
             switch (click)//クリックされた回数が
             {
                 case (1):
-                    this.gameObject.GetComponent<Image>().sprite = invi;//透明に変更
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = invi;//透明に変更
                     GetComponent<BoxCollider2D>().enabled = false;
                     break;
                     Debug.Log("OK");
                 case (2):
-                    this.gameObject.GetComponent<Image>().sprite = white;//白に変更
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = white;//白に変更
                     GetComponent<BoxCollider2D>().enabled = true;
                     click = 0;
                     break;
