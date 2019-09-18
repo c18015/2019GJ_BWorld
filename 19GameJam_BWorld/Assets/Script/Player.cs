@@ -48,6 +48,20 @@ public class Player : MonoBehaviour
         {
             floating = true;
         }
+
+        if (collision.gameObject.CompareTag("Damage"))
+        {
+
+            // transformを取得
+            Transform myTransform = this.transform;
+
+            // リスポーン地点に設定
+            Vector2 pos = myTransform.position;
+            pos.x = 0;    // x座標
+            pos.y = 0;    // y座標
+
+            myTransform.position = pos;  // 座標を設定
+        }
     }
 
 
