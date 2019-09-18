@@ -22,7 +22,7 @@ public class StageCreator : MonoBehaviour
 
     static bool create = true;
 
-    void Start()
+   public void Awake()
     {
         if (create)
         {
