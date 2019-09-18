@@ -34,15 +34,13 @@ public class Player : MonoBehaviour
         {
 
             flameCount = flameCount + 50 * Time.deltaTime;
-            Debug.Log(flameCount);
+            //Debug.Log(flameCount);
 
             if(flameCount >= 11)
             {
                 flameCount = 10;
             }
         }
-
- 
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
@@ -54,21 +52,7 @@ public class Player : MonoBehaviour
             flameCount = 0; //フレームカウントをリセットする。
             
         }
-
-        void OnTriggerEnter2D(Collision2D col)
-        { 
-
-                Debug.Log("OK");
-                floating = true; //修正点
-
-
-            
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            floating = true; //修正点
-        }
+        
 
         /*
         var rb = GetComponent<Rigidbody2D>();
@@ -77,7 +61,14 @@ public class Player : MonoBehaviour
 
     }
 
-    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            floating = true;
+        }
+    }
 
-    
+
+
 }
