@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private LayerMask m_WhatIsGround;
-
+    
 
     public float Speed = 3f;
     bool floating = true;//ジャンプの判定
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        var foot_pos = new Vector2(transform.position.x, transform.position.y - 0.6f);
+        //var foot_pos = new Vector2(transform.position.x, transform.position.y - 0.6f);
         //bool floating = (Physics2D.OverlapPoint(foot_pos, m_WhatIsGround) == null); 
 
         if (floating && Input.GetKey(KeyCode.Space))//ジャンプ判定がtrueでSpaceを押している間の処理
@@ -47,12 +47,12 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("ground"))
+        if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("MoveBlock"))
         {
             floating = true;
         }
     }
-
+  
 
 
 }
