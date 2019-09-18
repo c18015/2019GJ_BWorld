@@ -4,37 +4,80 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Rigidbody2D rb2d; // Rigidbody2Dの入れ物
-  public bool isGrounded;
-    void Start()
-    {
-        // オブジェクトのRigidbody2Dを取得
-        rb2d = GetComponent<Rigidbody2D>();
-    }
+    [SerializeField] private LayerMask m_WhatIsGround; // 追加
+
+    public float Jamp = 10f;
+    public float Speed = 3f;
+    bool floating = true;
+
+    public bool isGround;
+
+    public float flameCount; //経過フレーム数
+
+
+
     void FixedUpdate()
     {
-        // 左右のキー入力を取得
-        float moveparam = Input.GetAxis("Horizontal");
-        // 左右方向移動のためオブジェクトに力を加える
-        rb2d.AddForce(Vector2.right * moveparam * 10f);
-        // スペースキー入力でオブジェクトをジャンプさせる
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (isGrounded == true)
-            {
-                rb2d.AddForce(new Vector2(0, 9.8f), ForceMode2D.Impulse);
-                isGrounded = false;
-            }
-        }
-    }
-    // 空中での連続ジャンプを抑制するため地面との接触を感知するフラグの操作
-    // 地面とするオブジェクトにタグ（ground）をInspector上から追加しておく
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "ground")
-        {
-            isGrounded = true;
-        }
+        var hori = Input.GetAxisRaw("Horizontal");
+        var rb = GetComponent<Rigidbody2D>();
+        var vel = rb.velocity;
+        vel.x = hori * Speed;
+        rb.velocity = vel;
     }
 
+    void Update()
+    {
+
+        var foot_pos = new Vector2(transform.position.x, transform.position.y - 0.6f);
+        //bool floating = (Physics2D.OverlapPoint(foot_pos, m_WhatIsGround) == null); 
+        if (floating && Input.GetKey(KeyCode.Space))
+        {
+
+            flameCount = flameCount + 50 * Time.deltaTime;
+            Debug.Log(flameCount);
+
+            if(flameCount >= 11)
+            {
+                flameCount = 10;
+            }
+        }
+
+ 
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+
+            var rb = GetComponent<Rigidbody2D>();
+            rb.AddForce(new Vector2(0f, flameCount), ForceMode2D.Impulse);
+            floating = false;
+
+            flameCount = 0; //フレームカウントをリセットする。
+            
+        }
+
+        void OnTriggerEnter2D(Collision2D col)
+        { 
+
+                Debug.Log("OK");
+                floating = true; //修正点
+
+
+            
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            floating = true; //修正点
+        }
+
+        /*
+        var rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(new Vector2(0f, Jamp), ForceMode2D.Impulse);
+        floating = false;*/
+
+    }
+
+    
+
+    
 }
