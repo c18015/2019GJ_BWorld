@@ -6,22 +6,19 @@ public class MarkDisplay : MonoBehaviour
 {
     public GameObject Icon;
     public float Speed;
+    
+    Vector2 SP;
     // Start is called before the first frame update
     void Start()
     {
         Icon.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        
         
     }
 
     void Update()
     {
-        
+        Debug.Log(SP);
+        SP = GameObject.Find("hoge").transform.position;
     }
 
     void OnTriggerStay2D(Collider2D collider)
