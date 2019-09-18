@@ -17,14 +17,7 @@ public class Life : MonoBehaviour
         //シーン切り替え時にライフアイコン更新
         lifeIcon.UpdateLife(life);
     }
-    public void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            TakeDamage(1);//残基１減る
-            //SceneManager.LoadScene("Test2");
-        }
-    }
+
     public void TakeDamage(int amount) //外部のスクリプトから受け付け
     {
             Health += amount;//減った残基数
