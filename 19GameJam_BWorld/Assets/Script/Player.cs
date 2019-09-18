@@ -28,9 +28,12 @@ public class Player : MonoBehaviour
 
         if (floating && Input.GetKey(KeyCode.Space))//ジャンプ判定がtrueでSpaceを押している間の処理
         {
-            flameCount = flameCount + 50 * Time.deltaTime;//押している間flameCountが増える
+            flameCount = flameCount + 20 * Time.deltaTime;//押している間flameCountが増える
             //Debug.Log(flameCount);
-            if (flameCount >= 11) flameCount = 10;//ジャンプ力の上限
+            if (flameCount >= 4.6f)
+            {
+                flameCount = 4.5f;//ジャンプ力の上限
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.Space))//Spaceを離した時の処理
