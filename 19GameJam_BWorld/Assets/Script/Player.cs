@@ -10,7 +10,12 @@ public class Player : MonoBehaviour
     public float Speed = 3f;
     bool floating = true;//ジャンプの判定
     public float flameCount = 3f; //ジャンプ力
+    private Animator anim;
 
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     void FixedUpdate()
     {
         var hori = Input.GetAxisRaw("Horizontal");
