@@ -8,9 +8,13 @@ public class MarkDisplay : MonoBehaviour
     GameObject Icon;
     public float Speed;
     Vector3 pos;
+    private AudioSource audioSource;
+    public AudioClip Cory;
     // Start is called before the first frame update
     void Awake()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+
         GameObject player = GameObject.FindWithTag("Player");
         Icon = player.transform.GetChild(0).gameObject;
         Icon.SetActive(false);
@@ -26,6 +30,7 @@ public class MarkDisplay : MonoBehaviour
             Icon.SetActive(true);
             if (Input.GetKey(KeyCode.B))
             {
+                audioSource.PlayOneShot(Cory);
                 var hori = Input.GetAxisRaw("Horizontal");
                 var rb = GetComponent<Rigidbody2D>();
                 var vel = rb.velocity;
