@@ -11,10 +11,12 @@ public class Black : MonoBehaviour
 
     void Update()
     {
+
         // 左クリックされた瞬間に実行
         if (Input.GetMouseButtonDown(0))
         {
-
+            
+            Debug.Log(transform.localScale);
             click++;
             switch (click)//クリックされた回数が
             {

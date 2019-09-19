@@ -382,7 +382,7 @@ RectTransform:
   m_Children:
   - {fileID: 1081759162}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -587,8 +587,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textAsset: {fileID: 4900000, guid: 56b4e43c1a256cb4cb28eca9c039879d, type: 3}
-  player: {fileID: 9165195850601523992, guid: ef0da8586bfa74d44ba404fca47c0074, type: 3}
-  Glay_block: {fileID: 3301105459165896376, guid: 7a89db4e2d3f7164e83e5072fe3a4574,
+  player: {fileID: 2449314765712923149, guid: ef0da8586bfa74d44ba404fca47c0074, type: 3}
+  Glay_block: {fileID: 4234816969892293567, guid: fbb13127c04926b4aaa14f92aaa1c1a3,
     type: 3}
   Black_block: {fileID: 5744364230350982629, guid: 693f4c43caff73b45861281e42e74964,
     type: 3}
@@ -732,7 +732,7 @@ PrefabInstance:
     - target: {fileID: 5766161841286732979, guid: f36fbc5382dab7b48a2aca1f2051ba8f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5766161841286732979, guid: f36fbc5382dab7b48a2aca1f2051ba8f,
         type: 3}
