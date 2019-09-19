@@ -16,7 +16,6 @@ public class Black : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             
-            Debug.Log(transform.localScale);
             click++;
             switch (click)//クリックされた回数が
             {

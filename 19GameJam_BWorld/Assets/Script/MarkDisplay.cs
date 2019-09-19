@@ -26,17 +26,17 @@ public class MarkDisplay : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             Icon.SetActive(true);
-        }
 
-        if (Input.GetKey(KeyCode.B))
-        {
-            var hori = Input.GetAxisRaw("Horizontal");
-            var rb = GetComponent<Rigidbody2D>();
-            var vel = rb.velocity;
-            vel.x = hori * Speed;
-            rb.velocity = vel;
+            if (Input.GetKey(KeyCode.B))
+            {
+                var hori = Input.GetAxisRaw("Horizontal");
+                var rb = GetComponent<Rigidbody2D>();
+                var vel = rb.velocity;
+                vel.x = hori * Speed;
+                rb.velocity = vel;
 
-            Icon.SetActive(false);
+                Icon.SetActive(false);
+            }
         }
 
     }
