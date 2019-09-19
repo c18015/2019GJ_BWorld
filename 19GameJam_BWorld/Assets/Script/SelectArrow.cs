@@ -69,6 +69,13 @@ public class SelectArrow : MonoBehaviour
         {
             HowToPlayPanel.SetActive(false);
             HowtoPlay = true;
+            StateOFF.SetActive(true);
+            StateON.SetActive(false);
+            HowON.SetActive(true);
+            HowOFF.SetActive(false);
+            AroUP.SetActive(false);
+            AroDown.SetActive(true);
+            StateGame = true;
         }
 
 

@@ -2,23 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : PhysicsObject
+public class PlayerAni : MonoBehaviour
 {
-    
-
-    public float Speed = 5f;
-    public float JumpPower = 8f; //ジャンプ力
-    private SpriteRenderer spriteRenderer;
-
-    bool floating = true;//ジャンプの判定
 
     private Animator anim;
-
-    void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
+    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -26,41 +14,7 @@ public class Player : PhysicsObject
 
 
 
-    protected override void ComputeVelocity()
-    {
-        Vector2 move = Vector2.zero;
-
-        move.x = Input.GetAxis("Horizontal");
-
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
-        {
-            velocity.y = JumpPower;
-        }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            if (velocity.y > 0)
-            {
-                velocity.y = velocity.y * 0.5f;
-            }
-        }
-        
-
-        targetVelocity = move * Speed;
-    }
-
-
-
-
-
-
-
-
-
-
-
     
-
-    /*
     void Update()
     {
         var hori = Input.GetAxisRaw("Horizontal");
@@ -98,6 +52,6 @@ public class Player : PhysicsObject
         }
     }
   
-    */
+    
 
 }
