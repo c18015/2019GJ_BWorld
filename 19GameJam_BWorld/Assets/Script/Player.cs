@@ -23,11 +23,12 @@ public class Player : MonoBehaviour
         var vel = rb.velocity;
         vel.x = hori * Speed;
         rb.velocity = vel;
+        if (vel.x != 0) { anim.SetBool("Dash", true); }
+        else { anim.SetBool("Dash", false); }
     }
 
     void Update()
     {
-
         //var foot_pos = new Vector2(transform.position.x, transform.position.y - 0.6f);
         //bool floating = (Physics2D.OverlapPoint(foot_pos, m_WhatIsGround) == null); 
 
@@ -60,6 +61,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("MoveBlock"))
         {
+            //Debug.Log(floating);
             floating = true;
         }
 
