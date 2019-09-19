@@ -10,6 +10,11 @@ public class SelectArrow : MonoBehaviour
     public GameObject HowOFF;
     public GameObject AroUP;
     public GameObject AroDown;
+    public GameObject HowToPlayPanel;
+
+    bool HowtoPlay = true; //falseでON、trueでOFF
+    bool StateGame = true; 
+
     // Start is called before the first frame update
 
 
@@ -18,6 +23,8 @@ public class SelectArrow : MonoBehaviour
         StateOFF.SetActive(false);
         HowON.SetActive(false);
         AroDown.SetActive(false);
+        HowToPlayPanel.SetActive(false);
+        StateGame = false;
 
     }
 
@@ -32,10 +39,11 @@ public class SelectArrow : MonoBehaviour
             HowOFF.SetActive(false);
             AroUP.SetActive(false);
             AroDown.SetActive(true);
+            StateGame = true;
             
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (HowtoPlay && Input.GetKeyDown(KeyCode.UpArrow))
         {
             StateOFF.SetActive(false);
             StateON.SetActive(true);
@@ -43,9 +51,30 @@ public class SelectArrow : MonoBehaviour
             HowOFF.SetActive(true);
             AroUP.SetActive(true);
             AroDown.SetActive(false);
+            StateGame = false;
 
         }
+
+        if (!StateGame && Input.GetKeyDown(KeyCode.Space))//Spaceを◯ボタンに変える
+        {
+            Debug.Log("State Game!");//ゲームシーンに飛ばす
+        }
+        if(StateGame && Input.GetKeyDown(KeyCode.Space)) //HowtoPlay = falseで操作説明を表示しているときは矢印を動かなくさせる
+        {
+            HowToPlayPanel.SetActive(true);
+            HowtoPlay = false;
+        }
+
+        if (!HowtoPlay && Input.GetKeyDown(KeyCode.A))
+        {
+            HowToPlayPanel.SetActive(false);
+            HowtoPlay = true;
+        }
+
+
     }
+
+    
 
 
 }
