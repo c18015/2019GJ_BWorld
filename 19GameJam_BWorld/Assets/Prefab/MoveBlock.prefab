@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 454499503777383706}
   - component: {fileID: 454499503777383685}
   - component: {fileID: -2944479422560559659}
+  - component: {fileID: 3437333843583049394}
   m_Layer: 0
   m_Name: MoveBlock
   m_TagString: MoveBlock
@@ -99,7 +100,7 @@ Rigidbody2D:
   m_Mass: 30
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -118,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.022325754}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 0.64, y: 0.5953485}
   m_EdgeRadius: 0
 --- !u!61 &454499503777383706
 BoxCollider2D:
@@ -170,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
-  Speed: 1
+  Speed: 3
 --- !u!114 &-2944479422560559659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,3 +184,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701a90315925b3949aad7af65bc7ff51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &3437333843583049394
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454499503777383711}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.32, y: -0.2753513}
+  - {x: -0.27664277, y: -0.32133576}
+  - {x: 0.28601897, y: -0.3198391}
+  - {x: 0.32157665, y: -0.27446833}

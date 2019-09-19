@@ -22,7 +22,9 @@ public class Life : MonoBehaviour
 
     public void TakeDamage(int amount) //外部のスクリプトから受け付け
     {
-            
+        if (damage)
+        {
+            damage = false;
             Health += amount;//減った残基数
             life = maxHealth - Health;
             //ライフパネルを更新
@@ -32,7 +34,12 @@ public class Life : MonoBehaviour
             {
                 //死んだときの処理
             }
+        }     
 
     }
 
+    public void damageOn()
+    {
+        damage = true;
+    }
 }
