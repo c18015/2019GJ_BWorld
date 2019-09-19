@@ -23,7 +23,12 @@ public class Player : MonoBehaviour
         var vel = rb.velocity;
         vel.x = hori * Speed;
         rb.velocity = vel;
-        if (vel.x != 0) { anim.SetBool("Dash", true); }
+        if (vel.x != 0)
+        {
+            Vector2 temp = transform.localScale;
+            temp.x = hori * 1.56f;
+            transform.localScale = temp;
+            anim.SetBool("Dash", true); }
         else { anim.SetBool("Dash", false); }
     }
 

@@ -9,7 +9,7 @@ public class Scale : MonoBehaviour
     {
         if (!scale)
         {
-            this.transform.localScale = new Vector2(1.56f, 1.56f);
+            this.transform.localScale = new Vector2(1.565f, 1.565f);
             scale = true;
         }
     }
