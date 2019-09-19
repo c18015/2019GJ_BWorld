@@ -6,6 +6,8 @@ public class PlayerAni : MonoBehaviour
 {
 
     private Animator anim;
+    bool Checker = true;
+    bool Checker2 = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,19 +22,48 @@ public class PlayerAni : MonoBehaviour
 
 
         var hori = Input.GetAxisRaw("Horizontal");
+        //var rb = GetComponent<Rigidbody2D>();
+        //var vel = rb.velocity;
+        //vel.x = hori;
+        float www = hori;
+        if (www == 1)
+        {
+            
+            if (Checker)
+            {
+                this.transform.Rotate(0, 0, 0);
+                Checker = false;
+                Checker2 = true;
 
-        /*
-        var rb = GetComponent<Rigidbody2D>();
-        var vel = rb.velocity;
-        vel.x = hori;
-        
-         Vector2 temp = transform.localScale;
-            temp.x = hori * 1.56f;
-            transform.localScale = temp;
-         */
+            }
+            
+        }
+       
+
+
+        if (www == -1)
+        {
+            
+            
+
+            if (Checker2)
+            {
+                this.transform.Rotate(0, 180, 0);
+                Checker2 = false;
+                Checker = true;
+
+            }
+
+            
+        }
+
+
 
         if (hori != 0)
-        {
+        {/*
+            Vector2 temp = transform.localScale;
+            temp.x = hori * 1.56f;
+            transform.localScale = temp;*/
             anim.SetBool("Dash", true);
         }
         else { anim.SetBool("Dash", false); }

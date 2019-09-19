@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SelectArrow : MonoBehaviour
 {
@@ -12,8 +13,12 @@ public class SelectArrow : MonoBehaviour
     public GameObject AroDown;
     public GameObject HowToPlayPanel;
 
+    private AudioSource[] sources;
+    public float Number = 0f;
+
     bool HowtoPlay = true; //falseでON、trueでOFF
-    bool StateGame = true; 
+    bool StateGame = true;
+    bool ONON = true;
 
     // Start is called before the first frame update
 
@@ -26,12 +31,24 @@ public class SelectArrow : MonoBehaviour
         HowToPlayPanel.SetActive(false);
         StateGame = false;
 
+        sources = gameObject.GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        var hori = Input.GetAxisRaw("Vertical");
+        if (hori <= 0)
+        {
+            ONON = true;
+        }
+        else
+        {
+            ONON = false;
+        }
+
+
+            if (!ONON)
         {
             StateOFF.SetActive(true);
             StateON.SetActive(false);
@@ -40,10 +57,11 @@ public class SelectArrow : MonoBehaviour
             AroUP.SetActive(false);
             AroDown.SetActive(true);
             StateGame = true;
+
             
         }
 
-        if (HowtoPlay && Input.GetKeyDown(KeyCode.UpArrow))
+        if (ONON)
         {
             StateOFF.SetActive(false);
             StateON.SetActive(true);
@@ -55,17 +73,25 @@ public class SelectArrow : MonoBehaviour
 
         }
 
-        if (!StateGame && Input.GetKeyDown(KeyCode.Space))//Spaceを◯ボタンに変える
+        if (!StateGame && Input.GetButtonDown("Jump2"))//Spaceを◯ボタンに変える
         {
             Debug.Log("State Game!");//ゲームシーンに飛ばす
+
+
+            if (Number == 1)
+            {
+                Invoke("GoMain", 1f);//--メインに飛ぶ
+            }
+            sources[0].Play();
         }
-        if(StateGame && Input.GetKeyDown(KeyCode.Space)) //HowtoPlay = falseで操作説明を表示しているときは矢印を動かなくさせる
+        if(StateGame && Input.GetButtonDown("Jump2")) //HowtoPlay = falseで操作説明を表示しているときは矢印を動かなくさせる
         {
             HowToPlayPanel.SetActive(true);
             HowtoPlay = false;
+
         }
 
-        if (!HowtoPlay && Input.GetKeyDown(KeyCode.A))
+        if (!HowtoPlay && Input.GetButtonDown("BlockMove"))
         {
             HowToPlayPanel.SetActive(false);
             HowtoPlay = true;
@@ -81,7 +107,12 @@ public class SelectArrow : MonoBehaviour
 
     }
 
-    
+    void GoMain()
+    {
+        SceneManager.LoadScene("Stage1");
+    }
+
+
 
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : PhysicsObject
 {
-    
+
 
     public float Speed = 5f;
     public float JumpPower = 8f; //ジャンプ力
@@ -43,10 +43,12 @@ public class Player : PhysicsObject
                 velocity.y = velocity.y * 0.5f;
             }
         }
-        
+
 
         targetVelocity = move * Speed;
     }
+}
+
 
 
 
@@ -106,4 +108,4 @@ public class Player : PhysicsObject
         this.gameObject.GetComponent<Life>().damageOn();
     }
 
-}
+}*/

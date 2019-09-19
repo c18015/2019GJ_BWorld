@@ -177,6 +177,7 @@ MonoBehaviour:
   AroUP: {fileID: 0}
   AroDown: {fileID: 0}
   HowToPlayPanel: {fileID: 0}
+  Number: 0
 --- !u!114 &150926810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1024,6 +1025,7 @@ MonoBehaviour:
   AroUP: {fileID: 1650620050}
   AroDown: {fileID: 150926807}
   HowToPlayPanel: {fileID: 1134091754}
+  Number: 1
 --- !u!1 &1650620050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,6 +1256,7 @@ MonoBehaviour:
   AroUP: {fileID: 0}
   AroDown: {fileID: 0}
   HowToPlayPanel: {fileID: 0}
+  Number: 0
 --- !u!114 &1925712760
 MonoBehaviour:
   m_ObjectHideFlags: 0
