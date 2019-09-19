@@ -32,11 +32,11 @@ public class Player : PhysicsObject
 
         move.x = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (Input.GetButtonDown("Jump2") && grounded)
         {
             velocity.y = JumpPower;
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
+        else if (Input.GetButtonUp("Jump2"))
         {
             if (velocity.y > 0)
             {

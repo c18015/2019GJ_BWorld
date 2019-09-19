@@ -17,16 +17,22 @@ public class PlayerAni : MonoBehaviour
     
     void Update()
     {
+
+
         var hori = Input.GetAxisRaw("Horizontal");
+
+        /*
         var rb = GetComponent<Rigidbody2D>();
         var vel = rb.velocity;
         vel.x = hori;
-
-        if (vel.x != 0)
-        {
-            Vector2 temp = transform.localScale;
+        
+         Vector2 temp = transform.localScale;
             temp.x = hori * 1.56f;
             transform.localScale = temp;
+         */
+
+        if (hori != 0)
+        {
             anim.SetBool("Dash", true);
         }
         else { anim.SetBool("Dash", false); }
