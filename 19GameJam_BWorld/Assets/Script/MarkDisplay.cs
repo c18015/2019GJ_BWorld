@@ -17,8 +17,8 @@ public class MarkDisplay : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(SP);
-        SP = GameObject.Find("hoge").transform.position;
+        //Debug.Log(SP);
+        //SP = GameObject.Find("hoge").transform.position;
     }
 
     void OnTriggerStay2D(Collider2D collider)
