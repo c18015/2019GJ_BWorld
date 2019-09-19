@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
-    GameObject player;
+   GameObject player;
 
 
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindWithTag("Player");
     }
 
     void Update()

@@ -8,6 +8,7 @@ public class Damage : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            //Debug.Log("当たった");
             var hit = collision.gameObject;　//varは型理論
             var Health = hit.GetComponent<Life>();
             //LifeスクリプトからのTakeDamage への呼び出しを追加

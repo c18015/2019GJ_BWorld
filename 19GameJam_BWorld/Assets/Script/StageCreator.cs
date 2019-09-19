@@ -81,6 +81,12 @@ public class StageCreator : MonoBehaviour
                 obj.name = White_Needle.name;
                 pos.x += obj.transform.lossyScale.x;
             }
+            else if (c == 'm')
+            {
+                obj = Instantiate(Move_Block, pos, Quaternion.identity) as GameObject;
+                obj.name = Move_Block.name;
+                pos.x += obj.transform.lossyScale.x;
+            }
 
             else if (c == '\n')
             {

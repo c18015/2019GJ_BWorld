@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
             transform.localScale = temp;
             anim.SetBool("Dash", true); }
         else { anim.SetBool("Dash", false); }
+
     }
 
     void Update()
@@ -78,10 +79,11 @@ public class Player : MonoBehaviour
 
             // リスポーン地点に設定
             Vector2 pos = myTransform.position;
-            pos.x = 0;    // x座標
-            pos.y = 0;    // y座標
+            pos.x = 5;    // x座標
+            pos.y = -1;    // y座標
 
             myTransform.position = pos;  // 座標を設定
+
         }
     }
   
