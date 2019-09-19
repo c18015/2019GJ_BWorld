@@ -84,20 +84,26 @@ public class Player : PhysicsObject
 
         if (collision.gameObject.CompareTag("Damage"))
         {
-
-            // transformを取得
-            Transform myTransform = this.transform;
-
-            // リスポーン地点に設定
-            Vector2 pos = myTransform.position;
-            pos.x = 5;    // x座標
-            pos.y = -1;    // y座標
-
-            myTransform.position = pos;  // 座標を設定
-
+            //無敵処理＆ダメージの挙動制す者
+            StartCoroutine("muteki");
+            
         }
     }
   
-    */
+    IEnumerator muteki()
+    {
+        yield return new WaitForSeconds(1.0f);
+        // transformを取得
+        Transform myTransform = this.transform;
+
+        // リスポーン地点に設定
+        Vector2 pos = myTransform.position;
+        pos.x = 5;    // x座標
+        pos.y = -1;    // y座標
+
+        myTransform.position = pos;  // 座標を設定
+
+        this.gameObject.GetComponent<Life>().damageOn();
+    }
 
 }

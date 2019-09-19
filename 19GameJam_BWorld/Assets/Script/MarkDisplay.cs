@@ -1,24 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MarkDisplay : MonoBehaviour
 {
-    public GameObject Icon;
+    GameObject Icon;
     public float Speed;
-    
-    Vector2 SP;
+    Vector3 pos;
+    private AudioSource audioSource;
+    public AudioClip Cory;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        Icon.SetActive(false);
-        
-    }
+        audioSource = gameObject.AddComponent<AudioSource>();
 
-    void Update()
-    {
-        //Debug.Log(SP);
-        //SP = GameObject.Find("hoge").transform.position;
+        GameObject player = GameObject.FindWithTag("Player");
+        Icon = player.transform.GetChild(0).gameObject;
+        Icon.SetActive(false);
+        //自分の初期位置取得
+        pos = this.gameObject.transform.position;
+        //Debug.Log(Icon.name);
     }
 
     void OnTriggerStay2D(Collider2D collider)
@@ -26,9 +28,9 @@ public class MarkDisplay : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             Icon.SetActive(true);
-
             if (Input.GetKey(KeyCode.B))
             {
+                audioSource.PlayOneShot(Cory);
                 var hori = Input.GetAxisRaw("Horizontal");
                 var rb = GetComponent<Rigidbody2D>();
                 var vel = rb.velocity;
@@ -38,7 +40,6 @@ public class MarkDisplay : MonoBehaviour
                 Icon.SetActive(false);
             }
         }
-
     }
     void OnTriggerExit2D(Collider2D collider)
     {
@@ -47,6 +48,11 @@ public class MarkDisplay : MonoBehaviour
             Icon.SetActive(false);
         }
             
+    }
+    void OnBecameInvisible()
+    {
+
+            this.gameObject.transform.position = pos;
     }
 
 }
