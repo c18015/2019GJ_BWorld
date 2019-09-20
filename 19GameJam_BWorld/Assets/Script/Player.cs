@@ -6,8 +6,9 @@ public class Player : PhysicsObject
 {
 
 
-    public float Speed = 5f;
-    public float JumpPower = 8f; //ジャンプ力
+    public float Speed = 4f;
+    public float JumpPower = 6f; //ジャンプ力
+    float www;
     private SpriteRenderer spriteRenderer;
 
     bool floating = true;//ジャンプの判定
@@ -18,19 +19,32 @@ public class Player : PhysicsObject
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-
-    void Start()
-    {
-        anim = GetComponent<Animator>();
-    }
-
-
-
+    
     protected override void ComputeVelocity()
     {
-        Vector2 move = Vector2.zero;
+        var hori = Input.GetAxisRaw("Horizontal");
 
-        move.x = Input.GetAxis("Horizontal");
+        if (hori >= 0.5)
+        {
+            www = 1;
+        }
+        else if (hori <= -0.5)
+        {
+            www = -1;
+        }
+        else
+        {
+            www = 0;
+        }
+
+        var rb = GetComponent<Rigidbody2D>();
+        var vel = rb.velocity;
+        vel.x = www * Speed;
+        rb.velocity = vel;
+
+
+
+        Vector2 move = Vector2.zero;
 
         if (Input.GetButtonDown("Jump2") && grounded)
         {
@@ -44,9 +58,10 @@ public class Player : PhysicsObject
             }
         }
 
-
-        targetVelocity = move * Speed;
+        targetVelocity = move;
     }
+
+    
 }
 
 

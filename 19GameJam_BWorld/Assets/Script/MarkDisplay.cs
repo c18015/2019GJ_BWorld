@@ -10,6 +10,9 @@ public class MarkDisplay : MonoBehaviour
     Vector3 pos;
     private AudioSource audioSource;
     public AudioClip Cory;
+    float www;
+    private SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,6 +24,7 @@ public class MarkDisplay : MonoBehaviour
         //自分の初期位置取得
         pos = this.gameObject.transform.position;
         //Debug.Log(Icon.name);
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void OnTriggerStay2D(Collider2D collider)
@@ -32,14 +36,31 @@ public class MarkDisplay : MonoBehaviour
             {
 
 
-                audioSource.PlayOneShot(Cory);
-                var hori = Input.GetAxisRaw("Horizontal") * 3;
-                var rb = GetComponent<Rigidbody2D>();
-                var vel = rb.velocity;
-                vel.x = hori * Speed;
-                rb.velocity = vel;
+                
+                var hori = Input.GetAxisRaw("Horizontal");
 
-                Icon.SetActive(false);
+                if (hori >= 0.5)
+                {
+                    www = 1;
+                }
+                else if (hori <= -0.5)
+                {
+                    www = -1;
+                }
+                else
+                {
+                    www = 0;
+                }
+                if (hori != 0)
+                {
+                    audioSource.PlayOneShot(Cory);
+                    var rb = GetComponent<Rigidbody2D>();
+                    var vel = rb.velocity;
+                    vel.x = www * Speed;
+                    rb.velocity = vel;
+                    Icon.SetActive(false);
+                }
+                
             }
         }
     }
