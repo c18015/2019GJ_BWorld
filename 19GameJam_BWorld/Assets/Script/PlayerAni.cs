@@ -8,6 +8,9 @@ public class PlayerAni : MonoBehaviour
     private Animator anim;
     bool Checker = true;
     bool Checker2 = true;
+    Rigidbody2D rb;
+    float www;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,46 +25,59 @@ public class PlayerAni : MonoBehaviour
 
 
         var hori = Input.GetAxisRaw("Horizontal");
+        //Vector2 temp = transform.localScale;
+        //temp.x = hori * 1.56f;
         //var rb = GetComponent<Rigidbody2D>();
         //var vel = rb.velocity;
         //vel.x = hori;
-        float www = hori;
+        
+        
+        if(hori >= 0.5)
+        {
+            www = 1;
+        }else if(hori <= -0.5)
+        {
+            www = -1;
+        }
+        else
+        {
+            www = 0;
+        }
+
+        Debug.Log(www);
+
         if (www == 1)
         {
             
-            if (Checker)
+            if (!Checker)
             {
-                this.transform.Rotate(0, 0, 0);
-                Checker = false;
+                //Debug.Log("→");
+
+                this.transform.Rotate(0, 180, 0);
+                Checker = true;
                 Checker2 = true;
-
             }
-            
         }
-       
-
 
         if (www == -1)
         {
-            
-            
 
             if (Checker2)
             {
+                //Debug.Log("←");
+                
                 this.transform.Rotate(0, 180, 0);
                 Checker2 = false;
-                Checker = true;
+                Checker = false;
 
             }
-
-            
         }
 
 
 
         if (hori != 0)
-        {/*
-            Vector2 temp = transform.localScale;
+        {
+            /*Vector2 temp = transform.localScale;
             temp.x = hori * 1.56f;
             transform.localScale = temp;*/
             anim.SetBool("Dash", true);
