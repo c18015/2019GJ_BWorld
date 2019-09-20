@@ -42,11 +42,21 @@ public class Player : PhysicsObject
         vel.x = www * Speed;
         rb.velocity = vel;
 
+    protected override void ComputeVelocity()
+    {
+
+        var hori = Input.GetAxisRaw("Horizontal");
+        var rb = GetComponent<Rigidbody2D>();
+        var vel = rb.velocity;
+        vel.x = hori * Speed * Nomove;
+        rb.velocity = vel;
+        if (vel.x != 0)
 
 
         Vector2 move = Vector2.zero;
 
         if (Input.GetButtonDown("Jump2") && grounded)
+
         {
             velocity.y = JumpPower;
         }
@@ -109,7 +119,10 @@ public class Player : PhysicsObject
   
     IEnumerator muteki()
     {
-        yield return new WaitForSeconds(1.0f);
+        Nomove = 0;
+        anim.SetTrigger("Death");
+        yield return new WaitForSeconds(0.9f);
+
         // transformを取得
         Transform myTransform = this.transform;
 
@@ -121,6 +134,7 @@ public class Player : PhysicsObject
         myTransform.position = pos;  // 座標を設定
 
         this.gameObject.GetComponent<Life>().damageOn();
+        Nomove = 1;
     }
 
 }*/
