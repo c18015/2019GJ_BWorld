@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     
 
     public float Speed = 3f;
+    int Nomove = 1;
     bool floating = true;//ジャンプの判定
     public float flameCount = 3f; //ジャンプ力
     private Animator anim;
@@ -21,7 +22,7 @@ public class Player : MonoBehaviour
         var hori = Input.GetAxisRaw("Horizontal");
         var rb = GetComponent<Rigidbody2D>();
         var vel = rb.velocity;
-        vel.x = hori * Speed;
+        vel.x = hori * Speed * Nomove;
         rb.velocity = vel;
         if (vel.x != 0)
         {
@@ -41,7 +42,7 @@ public class Player : MonoBehaviour
         if (floating && Input.GetKeyDown(KeyCode.Space))//ジャンプ判定がtrueでSpaceを押している間の処理
         {
             var rb = GetComponent<Rigidbody2D>();
-            rb.AddForce(new Vector2(0f, flameCount), ForceMode2D.Impulse);//addforceでFlameCount分、上に移動
+            rb.AddForce(new Vector2(0f, flameCount * Nomove), ForceMode2D.Impulse);//addforceでFlameCount分、上に移動
             floating = false;       //ジャンプ判定をoff
             //flameCount = 0;         //フレームカウントをリセットする。   
 
@@ -81,7 +82,10 @@ public class Player : MonoBehaviour
   
     IEnumerator muteki()
     {
-        yield return new WaitForSeconds(1.0f);
+        Nomove = 0;
+        anim.SetTrigger("Death");
+        yield return new WaitForSeconds(0.9f);
+
         // transformを取得
         Transform myTransform = this.transform;
 
@@ -93,6 +97,7 @@ public class Player : MonoBehaviour
         myTransform.position = pos;  // 座標を設定
 
         this.gameObject.GetComponent<Life>().damageOn();
+        Nomove = 1;
     }
 
 }
