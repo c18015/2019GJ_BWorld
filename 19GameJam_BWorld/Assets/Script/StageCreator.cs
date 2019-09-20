@@ -15,6 +15,10 @@ public class StageCreator : MonoBehaviour
     public GameObject Black_Needle;
     public GameObject White_Needle;
     public GameObject Move_Block;
+    public GameObject Naraku_Block;
+    public GameObject Original_Block;
+    public GameObject Original_Block2;
+    public GameObject Original_Block3;
 
     public Vector3 createPos;
 
@@ -85,6 +89,30 @@ public class StageCreator : MonoBehaviour
             {
                 obj = Instantiate(Move_Block, pos, Quaternion.identity) as GameObject;
                 obj.name = Move_Block.name;
+                pos.x += obj.transform.lossyScale.x;
+            }
+            else if (c == '_')
+            {
+                obj = Instantiate(Naraku_Block, pos, Quaternion.identity) as GameObject;
+                obj.name = Naraku_Block.name;
+                pos.x += obj.transform.lossyScale.x;
+            }
+            else if (c == '1')
+            {
+                obj = Instantiate(Original_Block, pos, Quaternion.identity) as GameObject;
+                obj.name = Original_Block.name;
+                pos.x += obj.transform.lossyScale.x;
+            }
+            else if (c == '2')
+            {
+                obj = Instantiate(Original_Block2, pos, Quaternion.identity) as GameObject;
+                obj.name = Original_Block2.name;
+                pos.x += obj.transform.lossyScale.x;
+            }
+            else if (c == '3')
+            {
+                obj = Instantiate(Original_Block3, pos, Quaternion.identity) as GameObject;
+                obj.name = Original_Block3.name;
                 pos.x += obj.transform.lossyScale.x;
             }
 

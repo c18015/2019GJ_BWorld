@@ -5,16 +5,12 @@ using UnityEngine;
 public class Player : PhysicsObject
 {
 
-<<<<<<< HEAD
-    public float Speed = 3f;
-    int Nomove = 1;
-=======
 
-    public float Speed = 5f;
-    public float JumpPower = 8f; //ジャンプ力
+    public float Speed = 4f;
+    public float JumpPower = 6f; //ジャンプ力
+    float www;
     private SpriteRenderer spriteRenderer;
 
->>>>>>> bab488e14d982341be988c9d65c883d48b8c9358
     bool floating = true;//ジャンプの判定
 
     private Animator anim;
@@ -23,30 +19,44 @@ public class Player : PhysicsObject
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-
-    void Start()
+    
+    protected override void ComputeVelocity()
     {
-        anim = GetComponent<Animator>();
-    }
+        var hori = Input.GetAxisRaw("Horizontal");
 
+        if (hori >= 0.5)
+        {
+            www = 1;
+        }
+        else if (hori <= -0.5)
+        {
+            www = -1;
+        }
+        else
+        {
+            www = 0;
+        }
 
+        var rb = GetComponent<Rigidbody2D>();
+        var vel = rb.velocity;
+        vel.x = www * Speed;
+        rb.velocity = vel;
 
     protected override void ComputeVelocity()
     {
-<<<<<<< HEAD
+
         var hori = Input.GetAxisRaw("Horizontal");
         var rb = GetComponent<Rigidbody2D>();
         var vel = rb.velocity;
         vel.x = hori * Speed * Nomove;
         rb.velocity = vel;
         if (vel.x != 0)
-=======
+
+
         Vector2 move = Vector2.zero;
 
-        move.x = Input.GetAxis("Horizontal");
-
         if (Input.GetButtonDown("Jump2") && grounded)
->>>>>>> bab488e14d982341be988c9d65c883d48b8c9358
+
         {
             velocity.y = JumpPower;
         }
@@ -58,9 +68,10 @@ public class Player : PhysicsObject
             }
         }
 
-
-        targetVelocity = move * Speed;
+        targetVelocity = move;
     }
+
+    
 }
 
 
@@ -86,25 +97,10 @@ public class Player : PhysicsObject
 
         if (vel.x != 0)
         {
-<<<<<<< HEAD
-            var rb = GetComponent<Rigidbody2D>();
-            rb.AddForce(new Vector2(0f, flameCount * Nomove), ForceMode2D.Impulse);//addforceでFlameCount分、上に移動
-            floating = false;       //ジャンプ判定をoff
-            //flameCount = 0;         //フレームカウントをリセットする。   
-
-            /*
-            flameCount = flameCount + 20 * Time.deltaTime;//押している間flameCountが増える
-            //Debug.Log(flameCount);
-            if (flameCount >= 4.6f)
-            {
-                flameCount = 4.5f;//ジャンプ力の上限
-            }*/
-=======
             Vector2 temp = transform.localScale;
             temp.x = hori * 1.56f;
             transform.localScale = temp;
             anim.SetBool("Dash", true);
->>>>>>> bab488e14d982341be988c9d65c883d48b8c9358
         }
         else { anim.SetBool("Dash", false); }
     }
