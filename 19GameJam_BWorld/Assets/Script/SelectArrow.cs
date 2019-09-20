@@ -31,6 +31,7 @@ public class SelectArrow : MonoBehaviour
         HowToPlayPanel.SetActive(false);
         StateGame = false;
 
+
         sources = gameObject.GetComponents<AudioSource>();
     }
 
@@ -38,40 +39,44 @@ public class SelectArrow : MonoBehaviour
     void Update()
     {
         var hori = Input.GetAxisRaw("Vertical");
-        if (hori <= 0)
+        float Check = hori;
+        if (Check == 1)//スティックを下げた時
         {
-            ONON = true;
-        }
-        else
-        {
-            ONON = false;
-        }
+            if (ONON)
+            {
+                StateOFF.SetActive(true);
+                StateON.SetActive(false);
+                HowON.SetActive(true);
+                HowOFF.SetActive(false);
+                AroUP.SetActive(false);
+                AroDown.SetActive(true);
+                StateGame = true;
+                ONON = false;
 
-
-            if (!ONON)
-        {
-            StateOFF.SetActive(true);
-            StateON.SetActive(false);
-            HowON.SetActive(true);
-            HowOFF.SetActive(false);
-            AroUP.SetActive(false);
-            AroDown.SetActive(true);
-            StateGame = true;
-
+            }
             
         }
-
-        if (ONON)
+        if(Check == -1)//スティックを上げた時
         {
-            StateOFF.SetActive(false);
-            StateON.SetActive(true);
-            HowON.SetActive(false);
-            HowOFF.SetActive(true);
-            AroUP.SetActive(true);
-            AroDown.SetActive(false);
-            StateGame = false;
+            Debug.Log("age");
+            if (!ONON)
+            {
+                StateOFF.SetActive(false);
+                StateON.SetActive(true);
+                HowON.SetActive(false);
+                HowOFF.SetActive(true);
+                AroUP.SetActive(true);
+                AroDown.SetActive(false);
+                StateGame = false;
+                ONON = true;
 
+            }
         }
+
+
+            
+
+        
 
         if (!StateGame && Input.GetButtonDown("Jump2"))//Spaceを◯ボタンに変える
         {
@@ -88,7 +93,7 @@ public class SelectArrow : MonoBehaviour
         {
             HowToPlayPanel.SetActive(true);
             HowtoPlay = false;
-
+            sources[0].Play();
         }
 
         if (!HowtoPlay && Input.GetButtonDown("BlockMove"))
