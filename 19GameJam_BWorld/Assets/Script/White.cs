@@ -12,7 +12,7 @@ public class White : MonoBehaviour
     void Update()
     {
         // 左クリックされた瞬間に実行
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Fire1"))
         {
             click++;
             switch (click)//クリックされた回数が

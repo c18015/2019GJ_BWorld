@@ -28,10 +28,12 @@ public class MarkDisplay : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             Icon.SetActive(true);
-            if (Input.GetKey(KeyCode.B))
+            if (Input.GetKey(KeyCode.B) || Input.GetButtonDown("BlockMove"))
             {
+
+
                 audioSource.PlayOneShot(Cory);
-                var hori = Input.GetAxisRaw("Horizontal");
+                var hori = Input.GetAxisRaw("Horizontal") * 3;
                 var rb = GetComponent<Rigidbody2D>();
                 var vel = rb.velocity;
                 vel.x = hori * Speed;

@@ -2,45 +2,91 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : PhysicsObject
 {
-    [SerializeField] private LayerMask m_WhatIsGround;
-    
 
+<<<<<<< HEAD
     public float Speed = 3f;
     int Nomove = 1;
+=======
+
+    public float Speed = 5f;
+    public float JumpPower = 8f; //ジャンプ力
+    private SpriteRenderer spriteRenderer;
+
+>>>>>>> bab488e14d982341be988c9d65c883d48b8c9358
     bool floating = true;//ジャンプの判定
-    public float flameCount = 3f; //ジャンプ力
+
     private Animator anim;
+
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     void Start()
     {
         anim = GetComponent<Animator>();
     }
-    void FixedUpdate()
+
+
+
+    protected override void ComputeVelocity()
     {
+<<<<<<< HEAD
         var hori = Input.GetAxisRaw("Horizontal");
         var rb = GetComponent<Rigidbody2D>();
         var vel = rb.velocity;
         vel.x = hori * Speed * Nomove;
         rb.velocity = vel;
         if (vel.x != 0)
+=======
+        Vector2 move = Vector2.zero;
+
+        move.x = Input.GetAxis("Horizontal");
+
+        if (Input.GetButtonDown("Jump2") && grounded)
+>>>>>>> bab488e14d982341be988c9d65c883d48b8c9358
         {
-            Vector2 temp = transform.localScale;
-            temp.x = hori * 1.56f;
-            transform.localScale = temp;
-            anim.SetBool("Dash", true); }
-        else { anim.SetBool("Dash", false); }
+            velocity.y = JumpPower;
+        }
+        else if (Input.GetButtonUp("Jump2"))
+        {
+            if (velocity.y > 0)
+            {
+                velocity.y = velocity.y * 0.5f;
+            }
+        }
 
+
+        targetVelocity = move * Speed;
     }
+}
 
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    /*
     void Update()
     {
-        //var foot_pos = new Vector2(transform.position.x, transform.position.y - 0.6f);
-        //bool floating = (Physics2D.OverlapPoint(foot_pos, m_WhatIsGround) == null); 
+        var hori = Input.GetAxisRaw("Horizontal");
+        var rb = GetComponent<Rigidbody2D>();
+        var vel = rb.velocity;
+        vel.x = hori;
 
-        if (floating && Input.GetKeyDown(KeyCode.Space))//ジャンプ判定がtrueでSpaceを押している間の処理
+        if (vel.x != 0)
         {
+<<<<<<< HEAD
             var rb = GetComponent<Rigidbody2D>();
             rb.AddForce(new Vector2(0f, flameCount * Nomove), ForceMode2D.Impulse);//addforceでFlameCount分、上に移動
             floating = false;       //ジャンプ判定をoff
@@ -53,24 +99,19 @@ public class Player : MonoBehaviour
             {
                 flameCount = 4.5f;//ジャンプ力の上限
             }*/
+=======
+            Vector2 temp = transform.localScale;
+            temp.x = hori * 1.56f;
+            transform.localScale = temp;
+            anim.SetBool("Dash", true);
+>>>>>>> bab488e14d982341be988c9d65c883d48b8c9358
         }
-        /*
-        if (Input.GetKeyUp(KeyCode.Space))//Spaceを離した時の処理
-        {
-            var rb = GetComponent<Rigidbody2D>();
-            rb.AddForce(new Vector2(0f, flameCount), ForceMode2D.Impulse);//addforceでFlameCount分、上に移動
-            floating = false;       //ジャンプ判定をoff
-            flameCount = 0;         //フレームカウントをリセットする。       
-        }*/
+        else { anim.SetBool("Dash", false); }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("MoveBlock"))
-        {
-            //Debug.Log(floating);
-            floating = true;
-        }
+        
 
         if (collision.gameObject.CompareTag("Damage"))
         {
@@ -100,4 +141,4 @@ public class Player : MonoBehaviour
         Nomove = 1;
     }
 
-}
+}*/
