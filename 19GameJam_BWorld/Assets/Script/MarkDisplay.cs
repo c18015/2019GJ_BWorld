@@ -38,28 +38,14 @@ public class MarkDisplay : MonoBehaviour
 
                 
                 var hori = Input.GetAxisRaw("Horizontal");
-
-                if (hori >= 0.5)
-                {
-                    www = 1;
-                }
-                else if (hori <= -0.5)
-                {
-                    www = -1;
-                }
-                else
-                {
-                    www = 0;
-                }
-                if (hori != 0)
-                {
-                    audioSource.PlayOneShot(Cory);
-                    var rb = GetComponent<Rigidbody2D>();
-                    var vel = rb.velocity;
-                    vel.x = www * Speed;
-                    rb.velocity = vel;
-                    Icon.SetActive(false);
-                }
+                
+                audioSource.PlayOneShot(Cory);
+                var rb = GetComponent<Rigidbody2D>();
+                var vel = rb.velocity;
+                vel.x = www * Speed;
+                rb.velocity = vel;
+                Icon.SetActive(false);
+                
                 
             }
         }
