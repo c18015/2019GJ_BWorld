@@ -7,6 +7,7 @@ TagManager:
   - ground
   - MoveBlock
   - Damage
+  - G
   layers:
   - Default
   - TransparentFX

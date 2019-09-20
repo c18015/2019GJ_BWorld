@@ -28,18 +28,18 @@ public class StageCreator : MonoBehaviour
 
    public void Awake()
     {
-        if (create)
-        {
-            CreateStage(createPos);
+        
+        CreateStage(createPos);
 
-            createPos = Vector3.zero;
-        }
+        createPos = Vector3.zero;
+        
+
         
     }
 
     void CreateStage(Vector3 pos)
     {
-        create = false;
+        
 
         Vector3 originPos = pos;
         string stageTextData = textAsset.text;
@@ -127,4 +127,5 @@ public class StageCreator : MonoBehaviour
             }
         }
     }
+
 }
