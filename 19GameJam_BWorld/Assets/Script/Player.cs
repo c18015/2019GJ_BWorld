@@ -8,7 +8,7 @@ public class Player : PhysicsObject
 
     public float Speed = 4f;
     public float JumpPower = 6f; //ジャンプ力
-    float www;
+    
     private SpriteRenderer spriteRenderer;
 
     bool floating = true;//ジャンプの判定
@@ -24,22 +24,9 @@ public class Player : PhysicsObject
     {
         var hori = Input.GetAxisRaw("Horizontal");
 
-        if (hori >= 0.5)
-        {
-            www = 1;
-        }
-        else if (hori <= -0.5)
-        {
-            www = -1;
-        }
-        else
-        {
-            www = 0;
-        }
-
         var rb = GetComponent<Rigidbody2D>();
         var vel = rb.velocity;
-        vel.x = www * Speed;
+        vel.x = hori * Speed;
         rb.velocity = vel;
 
 

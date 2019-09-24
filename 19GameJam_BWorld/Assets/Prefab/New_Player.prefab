@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 5912128314971781685}
   - component: {fileID: 5912128314971781681}
   m_Layer: 0
-  m_Name: Player2
+  m_Name: New_Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,8 +295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minGroundNormalY: 0.65
   gravityModifier: 1
-  Speed: 4
-  JumpPower: 6
+  Speed: 5
+  JumpPower: 8
 --- !u!114 &5912128314971781681
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,11 +6,11 @@ using UnityEngine;
 public class MarkDisplay : MonoBehaviour
 {
     GameObject Icon;
-    public float Speed;
+    public float Speed = 5f;
     Vector3 pos;
     private AudioSource audioSource;
     public AudioClip Cory;
-    float www;
+    
     private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
@@ -32,21 +32,23 @@ public class MarkDisplay : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             Icon.SetActive(true);
-            if (Input.GetKey(KeyCode.B) || Input.GetButtonDown("BlockMove"))
+            if (Input.GetKey(KeyCode.B) || Input.GetButton("BlockMove"))
             {
 
 
                 
                 var hori = Input.GetAxisRaw("Horizontal");
                 
-                audioSource.PlayOneShot(Cory);
+                
                 var rb = GetComponent<Rigidbody2D>();
                 var vel = rb.velocity;
-                vel.x = www * Speed;
+                vel.x = hori * Speed;
                 rb.velocity = vel;
+
+
                 Icon.SetActive(false);
-                
-                
+                audioSource.PlayOneShot(Cory);
+
             }
         }
     }

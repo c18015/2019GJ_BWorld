@@ -148,5 +148,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  upPosition: -2
-  downPosition: -8
+  upPosition: 0
+  downPosition: -5
