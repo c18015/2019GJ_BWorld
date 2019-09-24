@@ -44,7 +44,7 @@ public class PlayerAni : MonoBehaviour
             www = 0;
         }
 
-        Debug.Log(www);
+        //Debug.Log(www);
 
         if (www == 1)
         {

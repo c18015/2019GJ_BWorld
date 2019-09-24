@@ -16,6 +16,7 @@ public class StageCreator : MonoBehaviour
     public GameObject White_Needle;
     public GameObject Move_Block;
     public GameObject Naraku_Block;
+    public GameObject Goal;
     public GameObject Original_Block;
     public GameObject Original_Block2;
     public GameObject Original_Block3;
@@ -95,6 +96,12 @@ public class StageCreator : MonoBehaviour
             {
                 obj = Instantiate(Naraku_Block, pos, Quaternion.identity) as GameObject;
                 obj.name = Naraku_Block.name;
+                pos.x += obj.transform.lossyScale.x;
+            }
+            else if (c == 'g')
+            {
+                obj = Instantiate(Goal, pos, Quaternion.identity) as GameObject;
+                obj.name = Goal.name;
                 pos.x += obj.transform.lossyScale.x;
             }
             else if (c == '1')

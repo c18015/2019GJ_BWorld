@@ -50,7 +50,10 @@ public class MarkDisplay : MonoBehaviour
                 audioSource.PlayOneShot(Cory);
 
             }
+
         }
+
+        
     }
     void OnTriggerExit2D(Collider2D collider)
     {
