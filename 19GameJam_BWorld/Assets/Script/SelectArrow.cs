@@ -80,7 +80,7 @@ public class SelectArrow : MonoBehaviour
 
         if (!StateGame && Input.GetButtonDown("Jump2"))//Spaceを◯ボタンに変える
         {
-            Debug.Log("State Game!");//ゲームシーンに飛ばす
+            //Debug.Log("State Game!");//ゲームシーンに飛ばす
 
 
             if (Number == 1)
@@ -114,7 +114,7 @@ public class SelectArrow : MonoBehaviour
 
     void GoMain()
     {
-        SceneManager.LoadScene("Stage1");
+        SceneManager.LoadScene("TutorialStage");
     }
 
 

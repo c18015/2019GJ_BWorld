@@ -19,12 +19,16 @@ public class NEstSen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Number == 11 && Input.GetButtonDown("BlockMove"))
+        {
+            SceneManager.LoadScene("Title");
+        }
 
         if (ooo && Input.GetButtonDown("BlockMove"))
         {
-            if (Number == 1)
+            if (Number == 0)
             {
-                Invoke("GoMain", 1f);//--メインに飛ぶ
+                Invoke("GoTuto", 1f);//--メインに飛ぶ
             }
         }
 
@@ -36,6 +40,11 @@ public class NEstSen : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("G"))
         {
+
+            if (Number == 1)
+            {
+                Invoke("GoS1", 1f);//--メインに飛ぶ
+            }
             if (Number == 2)
             {
                 Invoke("GoS2", 1f);//--メインに飛ぶ
@@ -45,11 +54,22 @@ public class NEstSen : MonoBehaviour
             {
                 Invoke("GoS3", 1f);//--メインに飛ぶ
             }
+            
+            if(Number == 10)
+            {
+                Invoke("GoClear", 1f);
+            }
         }
 
     }
 
-    void GoMain()
+    void GoTuto()
+    {
+        SceneManager.LoadScene("TutorialStage");
+    }
+
+
+    void GoS1()
     {
         SceneManager.LoadScene("Stage1");
     }
@@ -62,5 +82,10 @@ public class NEstSen : MonoBehaviour
     void GoS3()
     {
         SceneManager.LoadScene("Stage3");
+    }
+
+    void GoClear()
+    {
+        SceneManager.LoadScene("Clear");
     }
 }

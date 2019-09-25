@@ -92,11 +92,11 @@ GameObject:
   - component: {fileID: 7913153987995137888}
   - component: {fileID: 7802770882738397881}
   - component: {fileID: 3276362991207160269}
-  - component: {fileID: 3461049109988824396}
   - component: {fileID: 61452738982779184}
   - component: {fileID: 4225197593779999654}
   - component: {fileID: 5912128314971781685}
   - component: {fileID: 5912128314971781681}
+  - component: {fileID: -2392531878414572973}
   m_Layer: 0
   m_Name: New_Player
   m_TagString: Player
@@ -227,21 +227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701a90315925b3949aad7af65bc7ff51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3461049109988824396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6328867795189179291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3261dd40472ab224cae4b15ef10e9f3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeIcon: {fileID: 0}
-  life: 3
-  Death: {fileID: 0}
 --- !u!95 &61452738982779184
 Animator:
   serializedVersion: 3
@@ -296,7 +281,7 @@ MonoBehaviour:
   minGroundNormalY: 0.65
   gravityModifier: 1
   Speed: 5
-  JumpPower: 8
+  JumpPower: 6.5
 --- !u!114 &5912128314971781681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,3 +294,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b98b24f6a143046b07a3f5fe418775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2392531878414572973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6328867795189179291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2bc2e612b257c459f131046bd66cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Number: 0

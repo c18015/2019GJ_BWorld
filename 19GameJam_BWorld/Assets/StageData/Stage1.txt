@@ -1,11 +1,11 @@
                                 
-#                 ########       bb
-#                         #      ww   m
-#        bw     w bbbb  ###      bb  ##
-#m       bw    b        w        ww  # 
-######### b#b w    m    ##k# s## bb  # kk 
-                   #ww    #     ####### #b                               m  2
-                      ####                                              ## ##
+#                 ########       bb                                                #
+#                         #      ww   m                                            #
+#        bw     w bbbb  ###      bb  ##                                            #
+#        bw    b        w        ww  #                                             #
+######### b#b w    m    ##k# s## bb  # kk                                          #
+                   #ww    #     ####### #b                               m        g#
+                      ####                                              ## ########
                                        s                       b w     b  
                                                                b w    ws  #
                                     ####b    ww ## w b w b ## wwbbwwbbk
@@ -13,7 +13,7 @@
 
 
 
-___
+
 
 
 
