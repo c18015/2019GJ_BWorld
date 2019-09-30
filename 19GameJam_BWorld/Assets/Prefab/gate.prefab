@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 733417826605699679}
   - component: {fileID: 8359823298968005942}
+  - component: {fileID: 2739335338734155779}
   - component: {fileID: 7940957791738053626}
   m_Layer: 0
   m_Name: gate
@@ -81,6 +82,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2739335338734155779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704656335007221897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701a90315925b3949aad7af65bc7ff51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &7940957791738053626
 BoxCollider2D:
   m_ObjectHideFlags: 0

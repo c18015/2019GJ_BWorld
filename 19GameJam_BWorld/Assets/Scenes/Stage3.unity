@@ -516,15 +516,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -2392531878414572973, guid: 73cd67040ec54f741a576f28a1c239e1,
-        type: 3}
-      propertyPath: Number
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6328867795189179291, guid: 73cd67040ec54f741a576f28a1c239e1,
         type: 3}
       propertyPath: m_Name
       value: New_Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -2392531878414572973, guid: 73cd67040ec54f741a576f28a1c239e1,
+        type: 3}
+      propertyPath: Number
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5595430374398302390, guid: 73cd67040ec54f741a576f28a1c239e1,
         type: 3}

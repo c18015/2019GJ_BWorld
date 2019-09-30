@@ -26,17 +26,18 @@ public class StageCreator : MonoBehaviour
     public Vector3 spaceScale = new Vector3(1.0f, 1.0f, 0f);
 
     static bool create = true;
+    
 
-   public void Awake()
+    public void Awake()
     {
         
         CreateStage(createPos);
 
         createPos = Vector3.zero;
-        
 
-        
+
     }
+
 
     void CreateStage(Vector3 pos)
     {
@@ -134,5 +135,4 @@ public class StageCreator : MonoBehaviour
             }
         }
     }
-
 }

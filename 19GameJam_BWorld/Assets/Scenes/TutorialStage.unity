@@ -261,7 +261,7 @@ MonoBehaviour:
     type: 3}
   Naraku_Block: {fileID: 3515317277392965544, guid: 4ccb8a4fd9603de49ba6461bb69133be,
     type: 3}
-  Goal: {fileID: 1704656335007221897, guid: d18d01d39056eb9428bd0cf999ae5ece, type: 3}
+  Goal: {fileID: 4841402531306672869, guid: 3df9e2adc03a9824393c5ae2a7fd4c51, type: 3}
   Original_Block: {fileID: 5483938492993137490, guid: 61a62a37d744e3140969f55185b85d60,
     type: 3}
   Original_Block2: {fileID: 0}
@@ -408,15 +408,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -2392531878414572973, guid: 73cd67040ec54f741a576f28a1c239e1,
-        type: 3}
-      propertyPath: Number
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6328867795189179291, guid: 73cd67040ec54f741a576f28a1c239e1,
         type: 3}
       propertyPath: m_Name
       value: New_Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -2392531878414572973, guid: 73cd67040ec54f741a576f28a1c239e1,
+        type: 3}
+      propertyPath: Number
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5595430374398302390, guid: 73cd67040ec54f741a576f28a1c239e1,
         type: 3}
